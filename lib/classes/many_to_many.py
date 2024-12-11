@@ -122,3 +122,19 @@ class Magazine:
             author_counts[article.author] = author_counts.get(article.author, 0) + 1
         contributing_authors= [author for author, count in author_counts.items() if count > 2 ]
         return contributing_authors if contributing_authors else None
+        author1 = Author("John Doe")
+author2 = Author("Jane Smith")
+
+magazine1 = Magazine("Tech Today", "Technology")
+magazine2 = Magazine("Health Weekly", "Health")
+
+article1 = author1.add_article(magazine1, "The Future of AI")
+article2 = author1.add_article(magazine1, "Quantum Computing Basics")
+article3 = author2.add_article(magazine2, "Healthy Living Tips")
+article4 = author1.add_article(magazine2, "Nutrition Myths Debunked")
+
+print(f"Articles by {author1.name}: {[article.title for article in author1.articles()]}")
+print(f"Articles by {author2.name}: {[article.title for article in author2.articles()]}")
+print(f"Magazines by {author1.name}: {[magazine.name for magazine in author1.magazines()]}")
+print(f"Contributors to {magazine1.name}: {[author.name for author in magazine1.contributors()]}")
+print(f"Titles in {magazine2.name}: {magazine2.article_titles()}")
